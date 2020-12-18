@@ -6,10 +6,10 @@
 	</head>
 	<body>
 		<div style="width:800px;height:600px;position:relative;" id="billiards">
-			<div id="eagle" style="width:70px;height:70px;position:absolute;top:50px;left:50px;" data-top=50 data-left=50 data-xspeed=3 data-yspeed=3>
+			<div id="tomas" style="width:70px;height:70px;position:absolute;top:50px;left:50px;" data-top=50 data-left=50 data-xspeed=3 data-yspeed=3>
 				<img src="tomas.jpg">
 			</div>
-			<div id="pigeon" style="width:70px;height:70px;position:absolute;top:550px;left:750px;" data-top=550 data-left=750 data-xspeed=3 data-yspeed=3>
+			<div id="darkTomas" style="width:70px;height:70px;position:absolute;top:550px;left:750px;" data-top=550 data-left=750 data-xspeed=3 data-yspeed=3>
 				<img src="darkTomas.jpg">
 			</div>
 		</div>
@@ -63,7 +63,7 @@
 			obj.css("-ms-transform","rotate("+angle+"deg)");
 		}
 		
-		setInterval("play($('#eagle'))", 10);
-		setInterval("play($('#pigeon'))", 10);
+		setInterval("play($('#tomas'))", 10);
+		setInterval("play($('#darkTomas'))", 10);
 	</script>
 </html>
