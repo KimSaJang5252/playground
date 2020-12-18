@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<header>
+			<title>황오시 시뮬레이터</title>
+		</header>
+	</head>
+	<body>
+		<div style="width:800px;height:600px;position:relative;" id="billiards">
+			<div id="eagle" style="width:70px;height:70px;position:absolute;top:50px;left:50px;" data-top=50 data-left=50 data-xspeed=3 data-yspeed=3>
+				<img src="tomas.jpg">
+			</div>
+			<div id="pigeon" style="width:70px;height:70px;position:absolute;top:550px;left:750px;" data-top=550 data-left=750 data-xspeed=3 data-yspeed=3>
+				<img src="darkTomas.jpg">
+			</div>
+		</div>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script>
+		var angle = 0;
+		var v = 0;
+		
+		var radius = 35;
+		var width = 800;
+		var height = 600;
+		
+		function play(obj){ 
+			var top = Number(obj.data("top"));
+			var left = Number(obj.data("left"));
+			
+			if(top<=radius){
+				obj.data("yspeed","3");
+			}
+			else if(top>=height-radius){
+				obj.data("yspeed","-3");
+			}
+			
+			if(left<=radius){
+				obj.data("xspeed","3");
+			}
+			else if(left>=width-radius){
+				obj.data("xspeed","-3");
+			}
+			
+			var xspeed = Number(obj.data("xspeed"));
+			var yspeed = Number(obj.data("yspeed"));
+			
+			obj.data("xspeed",xspeed);
+			obj.data("yspeed",yspeed);
+			
+			obj.data("top",top+yspeed);
+			obj.data("left",left+xspeed);
+			
+			
+			obj.css("top",top+yspeed+"px");
+			obj.css("left",left+xspeed+"px");
+			
+			var img = obj.find("img");
+			
+			if(v<5) v= v+0.05;
+			angle += v;
+			obj.css("transform","rotate("+angle+"deg)");
+			obj.css("-webkit-transform","rotate("+angle+"deg)");
+			obj.css("-ms-transform","rotate("+angle+"deg)");
+		}
+		
+		setInterval("play($('#eagle'))", 10);
+		setInterval("play($('#pigeon'))", 10);
+	</script>
+</html>
